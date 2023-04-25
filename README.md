@@ -11,7 +11,7 @@
 
 __Установите Docker и docker-compose!__
 
-+ Запустите запустите проект
++ Запустите проект
 
 `docker-compose up`
 
@@ -20,6 +20,20 @@ __Установите Docker и docker-compose!__
 `docker-compose exec web python manage.py createsuperuser`
 
 По дефолту ваше приложение будет работать на 8000 порту
+
+## Запуск без Docker
+
+Установите poetry
+
+Установите зависимости: 
+
+`poetry install`
+
+Запустите django приложение
+
+`poetry run python manage.py runserver`
+
+
 
 
 
