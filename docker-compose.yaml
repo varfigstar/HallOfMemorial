@@ -1,0 +1,24 @@
+version: "3"
+services:
+  nginx_server:
+    image: "static_nginx_server"
+    build:
+      dockerfile: ./docker/nginx/Dockerfile
+      context: ./
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./images:/images
+    ports:
+      - 8080:80
+
+  web_app:
+    image: "memorial_web_app"
+    build:
+      dockerfile: ./docker/dev/Dockerfile
+      context: ./
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    command: "poetry run python -m manage runserver 0.0.0.0:8000"
+
